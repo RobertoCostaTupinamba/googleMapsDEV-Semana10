@@ -11,6 +11,5 @@ const DevSchema = new mongoose.Schema({
         index: '2dsphere'
     }
 });
-mongoose.set('useFindAndModify', false);
-mongoose.set('useCreateIndex', true);
+
 module.exports = mongoose.model('Dev', DevSchema);
