@@ -1,0 +1,23 @@
+// fragmento <> </> não se cria uma div no html
+// -necessario quando vc tem 1 componente embaixo do outro
+// -ele engole tudo e joga no html 
+//
+// Três conceitos do react(Tudo no react e basedo nesses 3 conceitos):
+// Componente - O App já é um componente(Função que retorna um conteudo HTML,CSS,JS)
+// - Criasse um componente novo quando se tem codigo repetindo varias vezes
+// - Esolar um pedaço da aplicação que não atrapalhe outro componente
+// -Não é bom ter 2 componenter no mesmo arquivo
+//
+// Propriedade - São os atributos do HTML
+// -Quando se passa um atributo para um componete vc tem uma propriedade
+// -Com ele vc pode passar "variaveis" de um componente pra outro com as props
+// -Ou seja informações que o compoente Pai "App" passa para seu filho "Header"
+//
+// Estado - Uma informação que o componete vai manipular (Mantida pelo componete)
+// - O react não fica monitorando as mudanças das variaveis por isso é necessario 
+// utilixar o conceito do estados
+// - Necessario importar do react uma função chamada useState utilizada pra criar um estado
+// - Informação que vai ser lida e atualizada pelo proprio componete
+// - Imutabilidade- no react nada atualiza e sim se constroi um novo valor com base no antigo
+//
+// JSX (JavaScript + XML)
