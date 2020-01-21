@@ -44,22 +44,26 @@ module.exports = {
         }
         return response.json(dev);
     },
+    // Desafio
     async destroy(request, response){
         const {github_username}= request.body;
-        let dev = await findOne({github_username})
-        if(dev){
-            dev.remove();  
-            response.json("Sucesso")   
+        let result = await Dev.deleteOne({github_username}); 
+        if(result.n == 1 && result.deletedCount == 1){
+             response.json("Sucesso")   
         }else{
           response.json("Usuario do git não encontrado")  
         }
     },
     async update(request, response){
-        console.log(request.body);
         const { github_username, name , update} = request.body;
         let att = {update}
 
         let a = await Dev.findOneAndUpdate({github_username}, att.update)
-        response.json(dev=[])
+        if (a) {
+            response.json("Sucesso")
+        }
+        else{
+            response.json("Algo inesperado aconteceu")
+        }
     }
 }
