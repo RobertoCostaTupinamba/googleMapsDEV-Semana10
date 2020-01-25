@@ -40,16 +40,16 @@ module.exports = {
                 techs: techsArray,
                 location
             })
-
+            return response.json(dev);
         }
-        return response.json(dev);
+        
     },
     // Desafio
     async destroy(request, response) {
-        const { github_username } = request.body;
-        console.log(request);
+        console.log(request.params);
         
-        
+        const { github_username } = request.params;
+          
         let result = await Dev.deleteOne({ github_username });
         if (result.n == 1 && result.deletedCount == 1) {
             response.json("Sucesso")

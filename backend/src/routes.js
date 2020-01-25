@@ -8,12 +8,12 @@ const routes = Router();
 
 //Tipos de parâmentros:
 // Query params: request.query(Filtros, ordenação, paginação, ...)
-// Route params: resquest.params (Identificar um recurso na alteração ou remoção)
+// Route params: request.params (Identificar um recurso na alteração ou remoção)
 // Body: request.body (Dados para criação ou alteração de um registro)
 
 routes.get('/devs', DevController.index)
 routes.post('/devs', DevController.store)
-routes.delete('/devs', DevController.destroy)
+routes.delete('/devs/:github_username', DevController.destroy)
 routes.put('/devs', DevController.update)
 
 routes.get('/search', SearchController.index)
