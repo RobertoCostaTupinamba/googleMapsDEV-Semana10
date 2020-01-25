@@ -11,20 +11,20 @@ const findOne = require('../utils/findOne');
 //Destroy - Destruir um recurso
 
 module.exports = {
-    async index(request, response){
+    async index(request, response) {
         const devs = await Dev.find(); //Utilizando filtros Dev.find({ name: 'Diego'})
         return response.json(devs)
     },
     async store(request, response) {
         const { github_username, techs, latitude, longitude } = request.body;
 
-        let dev = await findOne({github_username});
+        let dev = await findOne({ github_username });
 
         if (!dev) {
             const apiResponse = await axios.get(`https://api.github.com/users/${github_username}`);
 
             const { name = login, avatar_url, bio } = apiResponse.data
-            
+
             const techsArray = parseStringAsArray(techs)
 
             const location = {
@@ -45,24 +45,27 @@ module.exports = {
         return response.json(dev);
     },
     // Desafio
-    async destroy(request, response){
-        const {github_username}= request.body;
-        let result = await Dev.deleteOne({github_username}); 
-        if(result.n == 1 && result.deletedCount == 1){
-             response.json("Sucesso")   
-        }else{
-          response.json("Usuario do git não encontrado")  
+    async destroy(request, response) {
+        const { github_username } = request.body;
+        console.log(request);
+        
+        
+        let result = await Dev.deleteOne({ github_username });
+        if (result.n == 1 && result.deletedCount == 1) {
+            response.json("Sucesso")
+        } else {
+            response.json("Usuario do git não encontrado")
         }
     },
-    async update(request, response){
-        const { github_username, name , update} = request.body;
-        let att = {update}
+    async update(request, response) {
+        const { github_username, name, update } = request.body;
+        let att = { update }
 
-        let a = await Dev.findOneAndUpdate({github_username}, att.update)
+        let a = await Dev.findOneAndUpdate({ github_username }, att.update)
         if (a) {
             response.json("Sucesso")
         }
-        else{
+        else {
             response.json("Algo inesperado aconteceu")
         }
     }

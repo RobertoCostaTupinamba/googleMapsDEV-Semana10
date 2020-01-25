@@ -1,0 +1,16 @@
+li.dev-item div.edit{
+    display: flex;
+    justify-content: flex-end;
+}
+
+li.dev-item button{
+    border: 0px;
+    height: 20px;
+    width: 20px;
+    background: #fff;
+}
+
+li.dev-item button img{
+    height: 20px;
+    width: 20px;
+}

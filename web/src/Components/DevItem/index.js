@@ -1,9 +1,11 @@
 import React from 'react'
 import './styles.css'
+import Edit from '../EditDev'
 
-export default function DevItem({dev}) {
+export default function DevItem({ dev }) {
     return (
         <li className="dev-item">
+            <Edit github_username={dev.github_username}/>
             <header>
                 <img src={dev.avatar_url} alt={dev.name} />
                 <div className="user-info">
