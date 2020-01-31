@@ -5,12 +5,13 @@ li.dev-item div.edit{
 
 li.dev-item button{
     border: 0px;
-    height: 20px;
-    width: 20px;
+    height: 25px;
+    width: 25px;
     background: #fff;
+    cursor: pointer;
 }
 
 li.dev-item button img{
-    height: 20px;
-    width: 20px;
+    height: 25px;
+    width: 25px;
 }

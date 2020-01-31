@@ -1,6 +1,7 @@
 const Dev = require('../models/Dev');
 const parseStringAsArray = require('../utils/parseStringAsArray')
 
+
 module.exports={
     async index(request, response){
         //Buscar todos os devs em um raio de 10km
